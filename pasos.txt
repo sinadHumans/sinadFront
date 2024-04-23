@@ -1,0 +1,59 @@
+-Se crea una carpeta para el front
+-se ejecuta npm init vue@latest
+-se selecciona
+	se pone el nombre del proyecto
+	typescript
+	jsx support
+	vue router
+	pinia
+	
+-con estos comandos entramos y ejecutamos
+	cd nombre
+	npm install
+	npm run dev
+	
+-instalamos los valores
+	npm i bootstrap axios @fortawesome/fontawesome-free sweetalert2 vue-chartjs chart.js  datatables.net-vue3 datatables.net datatables.net-responsive-dt datatables.net-buttons jszip pdfmake pinia-plugin-persistedstate vuejs-paginate-next
+-Ejecutamos el proyecto con 
+	npm run dev
+-abrimos el index.html y cmabiamos el titulo
+-Creamos en la carpeta src el archivo function.js y creamos las funciones que estan de ejemplo
+	/* se crean funcion genericas para usar en todo el proyecto */
+	import Swal from 'sweetalert2'
+	import { nextTick } from '@vue/runtime-core'
+
+	/* funcion para las alertas */
+	export function show_alert(msj, icon, focus) {
+	  if (focus != '') {
+		nextTick(() => focus.value.focus())
+	  }
+	  Swal.fire({
+		title: msj,
+		icon: icon,
+		buttonsStyling: true
+	  })
+	}
+
+	/* funcion para  */
+	export function confirmation(name, url, redirect) {
+	  const alert = Swal.mixin({ buttonsStyling: true })
+	  alert
+		.fire({
+		  title: '¿Está seguro de eliminar ' + name + '?',
+		  icon: 'question',
+		  showCancelButton: true,
+		  confirmButtonText: "<i class='fa solid fa-check></i> Si borrar",
+		  cancelButtonText: "<i class='fa regular fa-ban'></i> Cancelar"
+		})
+		.then((result) => {
+		  if (result.isConfirmed) {
+		  }
+		})
+	}
+
+	/* funcion para mandar la llamada */
+	export async function sendRequest(method, params, url, redirect = '') {}
+
+-En la carpeta de stores
+	creamos el archivo auth.js con la siguiente informacion
+-despues nos vamos al archivo main.js y agregamos los valores que vienen en el ejemplo
